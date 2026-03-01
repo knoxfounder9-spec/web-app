@@ -2,11 +2,14 @@ import mongoose from 'mongoose';
 
 const FormSchema = new mongoose.Schema({
   title: { type: String, required: true },
+  description: String,
   questions: [{
-    text: { type: String, required: true },
-    type: { type: String, enum: ['text', 'paragraph', 'multiple', 'checkbox'], required: true },
-    options: [String], // Only used if type is multiple or checkbox
+    text: String,
+    type: { type: String, enum: ['text', 'paragraph', 'multiple-choice', 'checkbox'] },
+    options: [String], // Only for choice types
+    required: { type: Boolean, default: true }
   }],
+  active: { type: Boolean, default: true }
 }, { timestamps: true });
 
 export default mongoose.models.Form || mongoose.model('Form', FormSchema);
