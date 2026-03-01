@@ -9,15 +9,28 @@ export default function Home() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="relative min-h-screen bg-black text-white overflow-hidden">
-
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900 to-black opacity-40 animate-pulse" />
-
+    <div
+      style={{
+        minHeight: "100vh",
+        background: "linear-gradient(135deg,#1a1a1a,#000)",
+        color: "white",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
       {/* Menu Button */}
       <button
         onClick={() => setOpen(!open)}
-        className="absolute top-6 left-6 z-50"
+        style={{
+          position: "absolute",
+          top: "20px",
+          left: "20px",
+          background: "none",
+          border: "none",
+          color: "white",
+          cursor: "pointer",
+          zIndex: 100,
+        }}
       >
         <Menu size={32} />
       </button>
@@ -27,45 +40,55 @@ export default function Home() {
         <motion.div
           initial={{ x: -300 }}
           animate={{ x: 0 }}
-          className="absolute left-0 top-0 h-full w-64 bg-gray-900 p-6 z-40 shadow-xl"
+          style={{
+            position: "absolute",
+            left: 0,
+            top: 0,
+            width: "250px",
+            height: "100%",
+            background: "#111",
+            padding: "40px 20px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "20px",
+            zIndex: 50,
+          }}
         >
-          <div className="flex flex-col gap-6 mt-20 text-lg">
-            <Link href="/applications" className="hover:text-purple-400">
-              Applications
-            </Link>
-
-            <Link href="/status" className="hover:text-purple-400">
-              Data Category
-            </Link>
-
-            <Link href="/admin/login" className="hover:text-red-400">
-              Admin Panel
-            </Link>
-          </div>
+          <Link href="/applications">Applications</Link>
+          <Link href="/status">Data Category</Link>
+          <Link href="/admin/login">Admin Panel</Link>
         </motion.div>
       )}
 
       {/* Main Content */}
-      <div className="flex flex-col items-center justify-center h-screen relative z-10 text-center px-6">
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          textAlign: "center",
+        }}
+      >
         <motion.h1
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-5xl font-bold"
+          transition={{ duration: 0.6 }}
+          style={{ fontSize: "40px", fontWeight: "bold" }}
         >
           Grind Team Portal 🚀
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="mt-4 text-gray-300 max-w-lg text-lg"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          style={{ marginTop: "15px", color: "gray" }}
         >
-          Apply to join teams. Track your application status.
-          Admins manage approvals securely.
+          Apply. Track. Get Accepted.
         </motion.p>
       </div>
-
     </div>
   );
 }
