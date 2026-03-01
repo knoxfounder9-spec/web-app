@@ -12,7 +12,9 @@
     "react-dom": "18.2.0",
     "@tsparticles/react": "latest",
     "tsparticles": "latest",
-    "mongoose": "^8.0.0"
+    "mongoose": "^8.0.0",
+    "jsonwebtoken": "^9",
+    "bcryptjs": "^2.4.3"
   },
   "devDependencies": {
     "typescript": "^5",
