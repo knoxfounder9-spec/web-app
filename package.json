@@ -2,13 +2,11 @@
   "name": "grind-team-portal",
   "version": "0.1.0",
   "private": true,
- "scripts": {
+  "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start -p 8080 -H 0.0.0.0",
     "lint": "next lint"
-  },
-  
   },
   "dependencies": {
     "next": "14.1.0",
